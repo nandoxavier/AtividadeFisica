@@ -1,0 +1,26 @@
+// Selecionando elementos do HTML
+const formAtividade = document.getElementById('formAtividade');
+const listaAtividades = document.getElementById('listaAtividades');
+
+// Função para adicionar atividade à lista
+function adicionarAtividade(event) {
+    event.preventDefault();
+
+    // Pegando os valores do formulário
+    const atividade = document.getElementById('atividade').value;
+    const tempo = document.getElementById('tempo').value;
+    const calorias = document.getElementById('calorias').value;
+
+    // Criando um item de lista com as informações
+    const itemLista = document.createElement('li');
+    itemLista.textContent = `Atividade: ${atividade} | Tempo: ${tempo} minutos | Calorias queimadas: ${calorias}`;
+
+    // Adicionando o item à lista
+    listaAtividades.appendChild(itemLista);
+
+    // Limpando os campos do formulário
+    formAtividade.reset();
+}
+
+// Adicionando o evento de submissão do formulário
+formAtividade.addEventListener('submit', adicionarAtividade);
